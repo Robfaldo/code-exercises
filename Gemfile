@@ -66,3 +66,4 @@ end
 
 gem "devise"
 
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
