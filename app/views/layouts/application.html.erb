@@ -10,7 +10,15 @@
     <%= javascript_importmap_tags %>
   </head>
 
+  <%= render partial:'shared/header' %>
+
   <body>
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
