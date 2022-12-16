@@ -10,9 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_11_104959) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_16_160422) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attempts", force: :cascade do |t|
+    t.string "name"
+    t.string "github_repo_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "exercise_id", null: false
+    t.string "github_pr_url"
+    t.boolean "completed", default: false
+    t.bigint "user_id", null: false
+    t.index ["exercise_id"], name: "index_attempts_on_exercise_id"
+    t.index ["user_id"], name: "index_attempts_on_user_id"
+  end
+
+  create_table "exercises", force: :cascade do |t|
+    t.string "name"
+    t.string "github_repo_url"
+    t.string "github_pr_url"
+    t.boolean "completed", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "trail_id", null: false
+    t.index ["trail_id"], name: "index_exercises_on_trail_id"
+  end
+
+  create_table "trails", force: :cascade do |t|
+    t.text "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,8 +54,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_11_104959) do
     t.datetime "updated_at", null: false
     t.string "provider"
     t.string "uid"
+    t.string "github_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "attempts", "exercises"
+  add_foreign_key "attempts", "users"
+  add_foreign_key "exercises", "trails"
 end

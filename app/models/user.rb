@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:github]
 
+  has_many :attempts, dependent: :destroy
+
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.where(email: data['email']).first
@@ -13,6 +15,7 @@ class User < ApplicationRecord
     unless user
       user = User.create(
          email: data['email'],
+         github_id: access_token.uid,
          password: Devise.friendly_token[0,20]
       )
     end
