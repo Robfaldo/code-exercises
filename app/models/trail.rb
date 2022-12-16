@@ -1,5 +1,5 @@
 class Trail < ApplicationRecord
-  has_many :exercises
+  has_many :exercises, dependent: :destroy
 
   validates :name, presence: true
 end
