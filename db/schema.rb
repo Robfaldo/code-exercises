@@ -10,13 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_16_160422) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_18_101314) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "attempts", force: :cascade do |t|
-    t.string "name"
-    t.string "github_repo_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "exercise_id", null: false
@@ -30,8 +28,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_160422) do
   create_table "exercises", force: :cascade do |t|
     t.string "name"
     t.string "github_repo_url"
-    t.string "github_pr_url"
-    t.boolean "completed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "trail_id", null: false
@@ -55,6 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_160422) do
     t.string "provider"
     t.string "uid"
     t.string "github_id"
+    t.string "github_username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

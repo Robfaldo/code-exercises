@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+trail = Trail.create!(name: "Test trail")
+
+Exercise.create!(
+  name: "Test exercise",
+  github_repo_url: "https://github.com/marley-coder/test-exercise",
+  trail: trail
+)
