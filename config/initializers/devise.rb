@@ -291,7 +291,7 @@ Devise.setup do |config|
   # up on your models and hooks.
 
   # Need scope otherwise email isn't returned
-  config.omniauth :github, 'e36030574a0241e8b4c0', '45a590424553ea6a3153a9a26e58ff0016000ecc', scope: 'user:email'
+  config.omniauth :github, ENV["GITHUB_CLIENT_ID"], ENV["GITHUB_CLIENT_SECRET"], scope: 'user:email'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
