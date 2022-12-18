@@ -16,6 +16,7 @@ class User < ApplicationRecord
       user = User.create(
          email: data['email'],
          github_id: access_token.uid,
+         github_username: access_token.extra.raw_info.login,
          password: Devise.friendly_token[0,20]
       )
     end
