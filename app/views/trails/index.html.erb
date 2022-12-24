@@ -1,0 +1,12 @@
+<h2>Here are all the trails :)</h2>
+
+<% @trails.each do |trail| %>
+  Name: <%= trail.name %></br></br>
+  Exercises:</br></br>
+  <% trail.exercises.each do |exercise| %>
+    Name: <%= exercise.name %></br>
+    Attempted?: <%= exercise_attempted_by_user?(exercise) %></br>
+    Completed?: <%= exercise_completed_by_user?(exercise) %></br></br>
+  <% end %>
+  </br></br>
+<% end %>
