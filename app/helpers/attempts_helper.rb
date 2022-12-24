@@ -11,9 +11,7 @@ module AttemptsHelper
     return false unless current_user
 
     attempts = current_user.attempts.select {|attempt| attempt.exercise_id == exercise.id }
-    complete_attempts = attempts.select {|a| a.completed?}
 
-    # exercise has been attempted but not completed
-    attempts.any? && !complete_attempts
+    attempts.any?
   end
 end
