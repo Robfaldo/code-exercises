@@ -1,20 +1,28 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
 
-5.times do |i|
-  trail = Trail.create!(name: "Test trail #{i}")
+trail = Trail.create!(name: "Test trail")
+Exercise.create!(
+  name: "Test exercise",
+  github_repo_url: "https://github.com/marley-coder/test-exercise",
+  trail: trail
+)
 
-  3.times do |ei|
-    Exercise.create!(
-      name: "Test exercise #{ei}",
-      github_repo_url: "https://github.com/marley-coder/test-exercise",
-      trail: trail
-    )
-  end
-end
+trail = Trail.create!(name: "Rails routes")
+Exercise.create!(
+  name: "Creating a route",
+  github_repo_url: "https://github.com/marley-coder/creating-a-route",
+  trail: trail
+)
+Exercise.create!(
+  name: "Showing all books",
+  github_repo_url: "https://github.com/marley-coder/showing-all-books",
+  trail: trail
+)
 
+trail = Trail.create!(name: "Test doubles")
+Exercise.create!(
+  name: "Doing a double",
+  github_repo_url: "https://github.com/marley-coder/doing-a-double",
+  trail: trail
+)
