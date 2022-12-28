@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'test', to: 'test#index'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'trails#index'
 
