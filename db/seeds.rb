@@ -28,7 +28,8 @@ if Rails.env.development?
     github_repo_url: "https://github.com/marley-coder/doing-a-double",
     trail: trail
   )
-# else
+
+else
 
   trail = Trail.create!(name: "Phone number formatter")
   Exercise.create!(
