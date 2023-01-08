@@ -5,7 +5,11 @@
   color: #272727;
 
   .intro-container {
-    width: 50%;
+    width: 100%;
+
+    @media (min-width: 481px) {
+      width: 50%;
+    }
 
     .title {
       text-align: center;
@@ -20,7 +24,11 @@
 
   .trails {
     padding-top: 20px;
-    width: 70%;
+    width: 95%;
+
+    @media (min-width: 481px) {
+      width: 70%;
+    }
 
     .trail {
       padding-bottom: 30px;
@@ -33,7 +41,7 @@
 
       .description {
         font-size: 1rem;
-        padding: 5px 0px;
+        padding: 5px 0px 15px 0px;
       }
 
       .exercise-tracker {

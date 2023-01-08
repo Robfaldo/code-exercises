@@ -3,9 +3,13 @@
   flex-direction: column;
   background-color: #ffc618;
   font-family: Arial Rounded MT Bold,sans-serif;
-  padding: 15px 50px 30px 50px;
   color: #272727;
   font-size: 2rem;
+  padding: 15px 10px 20px 20px;
+
+  @media (min-width: 481px) {
+    padding: 15px 20px 30px 30px;
+  }
 
   a:visited, a:link, a:active {
     text-decoration: none;
@@ -33,6 +37,5 @@
     align-items: center;
     font-size: 1rem;
     justify-content: space-between;
-    width: 15vw;
   }
 }
