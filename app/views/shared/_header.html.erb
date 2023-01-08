@@ -1,14 +1,14 @@
 <header class="header-container">
   <nav class="navbar">
     <div class="logo">
-      <a href=<%= root_path %>>Home</a>
+      <a href=<%= root_path %>>Codelix</a>
     </div>
     <div class="account-buttons">
       <% if user_signed_in? %>
         <%= link_to 'Sign Out', destroy_user_session_path, class: 'some-css-class', data: { turbo_method: :delete } %>
       <% else %>
         <a href=<%= user_github_omniauth_authorize_path %>>
-          <div class="login-button">Log in with github here</div>
+          <div class="login-button">Log in with Github</div>
         </a>
       <% end %>
     </div>

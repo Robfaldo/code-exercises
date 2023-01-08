@@ -1,0 +1,38 @@
+.header-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffc618;
+  font-family: Arial Rounded MT Bold,sans-serif;
+  padding: 15px 50px 30px 50px;
+  color: #272727;
+  font-size: 2rem;
+
+  a:visited, a:link, a:active {
+    text-decoration: none;
+    color: #272727;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: #F7F7F7;
+  }
+
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .logo{
+    font-weight: bold;
+    letter-spacing: -1px;
+  }
+
+  .account-buttons {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    justify-content: space-between;
+    width: 15vw;
+  }
+}
