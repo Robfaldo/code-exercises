@@ -4,12 +4,13 @@ class Api::GithubController < ActionController::API
 
     find_or_create_attempt(pr_number: params["pr_number"],
                            repo_url: params["repo_url"],
-                           user: user)
+                           user: user,
+                           repo_name: repo_name(params["repo_url"]))
   end
 
   def notify_pr_approved
-    pr_url = pr_url(params["ref_name"].gsub("/merge", ""))
-    raise "Approved by someone unauthorized" unless params["approver"] == "marleycoder"
+    pr_url = pr_url(params["ref_name"].gsub("/merge", ""), repo_name(params["repo_url"]))
+    raise "Approved by someone unauthorized" unless ["marleycoder", "Robfaldo"].include?(params["approver"])
 
     attempt = Attempt.find_by(github_pr_url: pr_url)
     attempt.completed = true
@@ -21,7 +22,8 @@ class Api::GithubController < ActionController::API
 
     attempt = find_or_create_attempt(pr_number: params["pr_number"],
                                      repo_url: params["repo_url"],
-                                     user: user)
+                                     user: user,
+                                     repo_name: repo_name(params["repo_url"]))
 
     attempt.completed = true
     attempt.save!
@@ -29,20 +31,22 @@ class Api::GithubController < ActionController::API
 
   private
 
-  def find_or_create_attempt(pr_number:, repo_url:, user:)
-    attempt = Attempt.find_by(user: user, github_pr_url: pr_url(pr_number))
+  def find_or_create_attempt(pr_number:, repo_url:, user:, repo_name:)
+    github_pr_url = pr_url(pr_number, repo_name)
+    attempt = Attempt.find_by(user: user, github_pr_url: github_pr_url)
 
-    attempt || create_attempt(pr_number: pr_number, repo_url: repo_url, user: user)
+    attempt || create_attempt(
+      repo_url: repo_url,
+      user: user,
+      pr_url: github_pr_url
+    )
   end
 
-  def create_attempt(pr_number:, repo_url:, user:)
-    debugging_data = { pr_number: pr_number, repo_url: repo_url, user: user}.to_s
-
-    pr_url = pr_url(pr_number)
+  def create_attempt(repo_url:, user:, pr_url:)
     repo_url = repo_url.gsub("git:", "https:").gsub(".git", "")
 
     exercise = Exercise.find_by(github_repo_url: repo_url)
-    raise "Exercise not found for #{debugging_data}" unless exercise
+    raise "Exercise not found" unless exercise
 
     Attempt.create!(
       github_pr_url: pr_url,
@@ -51,7 +55,11 @@ class Api::GithubController < ActionController::API
     )
   end
 
-  def pr_url(pr_number)
-    "https://github.com/marley-coder/test-exercise/pull/#{pr_number}"
+  def pr_url(pr_number, repo_name)
+    "https://github.com/codelix-org/#{repo_name}/pull/#{pr_number}"
+  end
+
+  def repo_name(repo_url)
+    repo_url.gsub("git://github.com/", "").split("/").first
   end
 end
