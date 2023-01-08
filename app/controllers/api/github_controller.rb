@@ -60,6 +60,6 @@ class Api::GithubController < ActionController::API
   end
 
   def repo_name(repo_url)
-    repo_url.gsub("git://github.com/", "").split("/").first
+    repo_url.gsub("git://github.com/codelix-org/", "").gsub(".git", "")
   end
 end
