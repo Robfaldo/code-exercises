@@ -3,14 +3,14 @@
 
 
 if Rails.env.development?
-  trail = Trail.create!(name: "Test trail")
+  trail = Trail.create!(name: "Test trail", description: "In this trail you'll be building a class that formats a phone number using Ruby and RSpec. You'll be extending its functionality and implementing concepts and principles (such as Single Responsibility) that will make the code easier to reuse")
   Exercise.create!(
     name: "Test exercise",
     github_repo_url: "https://github.com/marley-coder/test-exercise",
     trail: trail
   )
 
-  trail = Trail.create!(name: "Rails routes")
+  trail = Trail.create!(name: "Rails routes", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
   Exercise.create!(
     name: "Creating a route",
     github_repo_url: "https://github.com/marley-coder/creating-a-route",
@@ -22,7 +22,7 @@ if Rails.env.development?
     trail: trail
   )
 
-  trail = Trail.create!(name: "Test doubles")
+  trail = Trail.create!(name: "Test doubles", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
   Exercise.create!(
     name: "Doing a double",
     github_repo_url: "https://github.com/marley-coder/doing-a-double",
@@ -31,7 +31,7 @@ if Rails.env.development?
 
 else
 
-  trail = Trail.create!(name: "Phone number formatter")
+  trail = Trail.create!(name: "Phone number formatter", description: "In this trail you'll be building a class that formats a phone number using Ruby and RSpec. You'll be extending its functionality and implementing concepts and principles (such as Single Responsibility) that will make the code easier to reuse")
   Exercise.create!(
     name: "exercise 1",
     github_repo_url: "https://github.com/codelix-org/phone-number-exercise-1",
