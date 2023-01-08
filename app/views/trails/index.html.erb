@@ -20,7 +20,7 @@
         </div>
         <div class="exercise-tracker">
           <div class="exercise-title">Exercises:</div>
-          <% trail.exercises.each do |exercise| %>
+          <% trail.exercises.order(:number).each do |exercise| %>
             <a href="<%= exercise.github_repo_url %>"><span class="dot <%= dot_colour(exercise)%>"></span></a>
           <% end %>
         </div>

@@ -12,13 +12,38 @@ if Rails.env.development?
 
   trail = Trail.create!(name: "Rails routes", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
   Exercise.create!(
+    number: 2,
+    github_repo_url: "https://github.com/marley-coder/showing-all-books",
+    trail: trail
+  )
+
+  Exercise.create!(
     number: 1,
     github_repo_url: "https://github.com/marley-coder/creating-a-route",
     trail: trail
   )
+
   Exercise.create!(
-    number: 2,
-    github_repo_url: "https://github.com/marley-coder/showing-all-books",
+    number: 3,
+    github_repo_url: "https://github.com/marley-coder/showing-all-booksa",
+    trail: trail
+  )
+
+  Exercise.create!(
+    number: 4,
+    github_repo_url: "https://github.com/marley-coder/showing-all-booksb",
+    trail: trail
+  )
+
+  Exercise.create!(
+    number: 5,
+    github_repo_url: "https://github.com/marley-coder/showing-all-booksc",
+    trail: trail
+  )
+
+  Exercise.create!(
+    number: 6,
+    github_repo_url: "https://github.com/marley-coder/showing-all-booksd",
     trail: trail
   )
 
