@@ -62,5 +62,17 @@ else
     github_repo_url: "https://github.com/codelix-org/phone-number-exercise-1",
     trail: trail
   )
+
+  Exercise.create!(
+    number: 2,
+    github_repo_url: "https://github.com/codelix-org/phone-number-exercise-2",
+    trail: trail
+  )
+
+  Exercise.create!(
+    number: 3,
+    github_repo_url: "https://github.com/codelix-org/phone-number-exercise-3",
+    trail: trail
+  )
 end
 
