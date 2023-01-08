@@ -1,4 +1,14 @@
 module AttemptsHelper
+  def dot_colour(exercise)
+    if exercise_completed_by_user?(exercise)
+      "green"
+    elsif exercise_attempted_by_user?(exercise)
+      "orange"
+    else
+      "not-attempted"
+    end
+  end
+
   def exercise_completed_by_user?(exercise)
     return false unless current_user
 
