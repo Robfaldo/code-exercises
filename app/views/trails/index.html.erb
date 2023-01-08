@@ -13,9 +13,14 @@
     <% @trails.each do |trail| %>
       <div class="trail">
         <div class="name"><%= trail.name %></div>
-        <div class="description">Click on the first exercise to get started!</div>
+        <div class="description">
+          <%= trail.description %>
+
+          <div class="get-started">Click on the first exercise to get started!</div>
+        </div>
         <div class="exercise-tracker">
-          <% trail.exercises.each do |exercise| %>
+          <div class="exercise-title">Exercises:</div>
+          <% trail.exercises.order(:number).each do |exercise| %>
             <a href="<%= exercise.github_repo_url %>"><span class="dot <%= dot_colour(exercise)%>"></span></a>
           <% end %>
         </div>

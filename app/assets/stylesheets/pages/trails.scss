@@ -23,7 +23,7 @@
   }
 
   .trails {
-    padding-top: 20px;
+    padding-top: 40px;
     width: 95%;
 
     @media (min-width: 481px) {
@@ -42,12 +42,25 @@
       .description {
         font-size: 1rem;
         padding: 5px 0px 15px 0px;
+
+        @media (min-width: 481px) {
+          max-width: 50%;
+        }
+
+        .get-started {
+          padding-top: 10px;
+        }
       }
 
       .exercise-tracker {
         display: flex;
         flex-direction: row;
         gap: 10px;
+
+        .exercise-title {
+          font-size: 1.1rem;
+          font-weight: bold;
+        }
 
         .span {
           padding-right: 5px;
@@ -65,11 +78,11 @@
         }
 
         .green {
-          background-color: green;
+          background-color: #7DFF5D;
         }
 
         .orange {
-          background-color: orange;
+          background-color: #F4B05A;
         }
       }
     }
